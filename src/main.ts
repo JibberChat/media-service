@@ -1,5 +1,3 @@
-import { GlobalExceptionFilter } from "@helpers/filter/global-exception.filter";
-
 import { ConfigService } from "@nestjs/config";
 import { HttpAdapterHost, NestFactory } from "@nestjs/core";
 import { MicroserviceOptions, Transport } from "@nestjs/microservices";
@@ -9,6 +7,8 @@ import { AppModule } from "./app.module";
 import { ConfigurationService } from "@infrastructure/configuration/services/configuration.service";
 import { LoggerInterceptor } from "@infrastructure/logger/logger.interceptor";
 import { LoggerService } from "@infrastructure/logger/services/logger.service";
+
+import { GlobalExceptionFilter } from "@helpers/filter/global-exception.filter";
 
 async function bootstrap() {
   const loggerService = new LoggerService();
