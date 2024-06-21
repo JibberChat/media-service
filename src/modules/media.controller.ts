@@ -8,11 +8,6 @@ import { MediaService } from "./media.service";
 export class MediaController {
   constructor(private readonly mediaService: MediaService) {}
 
-  @MessagePattern({ cmd: "getMedias" })
-  getMedias(): string {
-    return this.mediaService.getMedias();
-  }
-
   @MessagePattern({ cmd: "uploadFile" })
   async uploadFile(data: UploadFileDto): Promise<{ url: string }> {
     return await this.mediaService.uploadFile(data);
