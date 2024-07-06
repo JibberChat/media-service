@@ -2,14 +2,12 @@ import { ConfigService } from "@nestjs/config";
 import { HttpAdapterHost, NestFactory } from "@nestjs/core";
 import { MicroserviceOptions, Transport } from "@nestjs/microservices";
 
-import { AppModule } from "./app.module";
+import { AppModule } from "./modules/app.module";
 
 import { ConfigurationService } from "@infrastructure/configuration/services/configuration.service";
 import { GlobalExceptionFilter } from "@infrastructure/filter/global-exception.filter";
 import { LoggerInterceptor } from "@infrastructure/logger/logger.interceptor";
 import { LoggerService } from "@infrastructure/logger/services/logger.service";
-
-import { GlobalExceptionFilter } from "@helpers/filter/global-exception.filter";
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
